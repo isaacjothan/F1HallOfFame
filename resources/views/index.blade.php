@@ -97,6 +97,7 @@
 									Tu navegador no puede reproducir este video. <a href="{{ asset('videos/Kimi Antonelli Is The F1 World Champion!.mp4') }}">Descárgalo aquí</a>.
 								</video>
 							</div>
+							@include('partials.reaction-bar')
 						</section>
 
 						<section id="temporada" class="champion-season" aria-labelledby="season-title">

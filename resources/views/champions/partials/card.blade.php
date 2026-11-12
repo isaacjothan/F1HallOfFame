@@ -1,19 +1,20 @@
-<article class="champion-card">
+<article class="champion-card card">
 	<a class="champion-card__link" href="{{ route('champions.show', $driver) }}" aria-label="Ver trayectoria de {{ $driver->name }}">
 		<div class="champion-card__portrait">
 			@if ($driver->image_path)
 				<img src="{{ asset($driver->image_path) }}" alt="{{ $driver->name }}" loading="lazy" />
 			@else
 				<div class="champion-card__placeholder" aria-hidden="true">
-					<span>{{ mb_substr($driver->name, 0, 1) }}</span>
+					<span class="champion-card__initial">{{ mb_substr($driver->name, 0, 1) }}</span>
 					<small>{{ $driver->nationality ?? 'Leyenda de la F1' }}</small>
 				</div>
 			@endif
 			<span class="champion-card__titles">{{ $driver->championships_count }} {{ $driver->championships_count === 1 ? 'título' : 'títulos' }}</span>
 		</div>
-		<div class="champion-card__content">
+
+		<div class="champion-card__content content">
 			@if ($driver->nationality)
-				<p class="champion-card__nationality">{{ $driver->nationality }}</p>
+				<p class="champion-card__nationality logo-bottom-text">{{ $driver->nationality }}</p>
 			@endif
 			<h3>{{ $driver->name }}</h3>
 			<p class="champion-card__seasons" aria-label="Temporadas de campeonato">
@@ -21,7 +22,11 @@
 					<span>{{ $championship->season }}</span>
 				@endforeach
 			</p>
-			<span class="champion-card__cta">Ver trayectoria <span aria-hidden="true">→</span></span>
 		</div>
+
+		<span class="champion-card__cta">
+			Ver trayectoria
+			<span class="champion-card__cta-icon" aria-hidden="true">→</span>
+		</span>
 	</a>
 </article>
